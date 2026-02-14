@@ -1,0 +1,6 @@
+# E-Commerce API
+## Description
+This is a simple e-commerce API that allows you to manage products. You can create, read, update, and delete products. The API is built using Go and uses an in-memory store to manage the products.
+
+## Endpoints
+- `GET /products/{id}`: Get a product by its ID.
