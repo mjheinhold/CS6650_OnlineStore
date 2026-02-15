@@ -43,7 +43,7 @@ resource "docker_image" "app" {
   name = "${module.ecr.repository_url}:latest"
 
   build {
-    # relative path from terraform/ → src/
+    # relative path from terraform/ → src/ (replaced main.go with my server code)
     context = "../src"
     # Dockerfile defaults to "Dockerfile" in that context
   }

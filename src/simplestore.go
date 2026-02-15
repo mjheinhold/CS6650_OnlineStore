@@ -60,8 +60,15 @@ func (s *productStore) Delete(key int) bool {
 
 func (s *productStore) seed() {
 	s.Update(1, product{ProductId: 1, Sku: "sku1", Manufacturer: "manufacturer1", CategoryId: 1, Weight: 10, SomeOtherId: 100})
-	s.Update(200, product{ProductId: 200, Sku: "sku2", Manufacturer: "manufacturer2", CategoryId: 2, Weight: 20, SomeOtherId: 200})
-	s.Update(3000, product{ProductId: 3000, Sku: "sku3", Manufacturer: "manufacturer3", CategoryId: 3, Weight: 30, SomeOtherId: 300})
+	s.Update(2, product{ProductId: 2, Sku: "sku2", Manufacturer: "manufacturer2", CategoryId: 2, Weight: 20, SomeOtherId: 200})
+	s.Update(3, product{ProductId: 3, Sku: "sku3", Manufacturer: "manufacturer3", CategoryId: 3, Weight: 30, SomeOtherId: 300})
+	s.Update(4, product{ProductId: 4, Sku: "sku4", Manufacturer: "manufacturer4", CategoryId: 4, Weight: 40, SomeOtherId: 400})
+	s.Update(5, product{ProductId: 5, Sku: "sku5", Manufacturer: "manufacturer5", CategoryId: 5, Weight: 50, SomeOtherId: 500})
+	s.Update(6, product{ProductId: 6, Sku: "sku6", Manufacturer: "manufacturer6", CategoryId: 6, Weight: 60, SomeOtherId: 600})
+	s.Update(7, product{ProductId: 7, Sku: "sku7", Manufacturer: "manufacturer7", CategoryId: 7, Weight: 70, SomeOtherId: 700})
+	s.Update(8, product{ProductId: 8, Sku: "sku8", Manufacturer: "manufacturer8", CategoryId: 8, Weight: 80, SomeOtherId: 800})
+	s.Update(9, product{ProductId: 9, Sku: "sku9", Manufacturer: "manufacturer9", CategoryId: 9, Weight: 90, SomeOtherId: 900})
+	s.Update(10, product{ProductId: 10, Sku: "sku10", Manufacturer: "manufacturer10", CategoryId: 10, Weight: 100, SomeOtherId: 1000})
 }
 
 // Function calls from HTTP requests
@@ -83,8 +90,6 @@ func getProductById(c *gin.Context) {
 	} else {
 		c.IndentedJSON(http.StatusOK, product) // if product is found, return 200 with product details as JSON
 	}
-
-	// if an issue with the server, return 500 with error message
 
 }
 
@@ -112,7 +117,6 @@ func updateProductDetails(c *gin.Context) {
 		c.Status(http.StatusNoContent)             // if product is found and updated return 204
 	}
 
-	// if an issue with the server, return 500 with error message
 }
 
 func main() {
