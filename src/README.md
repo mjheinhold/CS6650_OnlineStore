@@ -58,8 +58,14 @@ curl http://<PUBLIC-IP-ADDRESS>:8080...
 - `POST /products/{id}/details`: Create or update a product's details by its ID.
 
 ## Testing
-You can use the locustfile to perform load testing on the API. Make sure you have Locust installed, and then run:
+You can use the locustfile to perform load testing on the API. Make sure you have Locust installed, and then from the testing directory run:
 ```
+docker-compose up
+docker-compose up -scale worker={NUMBER_OF_WORKERS}
+```
+
+Then open your browser and navigate to `http://<PUBLIC-IP-ADDRESS>:8089` to access the Locust web interface. From there, you can start the load test by specifying the number of users and the spawn rate.
+
 ## Clean Up
 ```
 terraform destroy -auto-approve
