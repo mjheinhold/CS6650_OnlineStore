@@ -58,12 +58,12 @@ curl http://<PUBLIC-IP-ADDRESS>:8080...
   - Example: `curl http://<PUBLIC-IP-ADDRESS>:8080/products/1`
   - Responses:
     - `200 OK`: Returns the product details in JSON format.
-      - "product_id": 1,
+      - {"product_id": 1,
        "sku": "sku1",
        "manufacturer": "manufacturer1",
        "category_id": 1,
        "weight": 10,
-       "some_other_id": 100 
+       "some_other_id": 100} 
     - `404 Not Found`: If the product with the specified ID does not exist.
       - "error": "Product not found"
 - `POST /products/{id}/details`: Add or update detailed information for a specific product.
