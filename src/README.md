@@ -55,7 +55,25 @@ curl http://<PUBLIC-IP-ADDRESS>:8080...
 ```
 ## Endpoints
 - `GET /products/{id}`: Get a product by its ID.
-- `POST /products/{id}/details`: Create or update a product's details by its ID.
+- - Example: `curl http://<PUBLIC-IP-ADDRESS>:8080/products/1`
+- - Responses:
+  - `200 OK`: Returns the product details in JSON format.
+    - "product_id": 1,
+    - "sku": "sku1",
+    - "manufacturer": "manufacturer1",
+    - "category_id": 1,
+    - "weight": 10,
+    - "some_other_id": 100 
+  - `404 Not Found`: If the product with the specified ID does not exist.
+    - "error": "Product not found"
+- `POST /products/{id}/details`: Add or update detailed information for a specific product.
+- - Example: `curl -X POST http://<PUBLIC-IP-ADDRESS>:8080/products/1/details -H "Content-Type: application/json" -d '{"sku": "sku1", "manufacturer": "manufacturer1", "category_id": 1, "weight": 10, "some_other_id": 100}'`
+- - Responses:
+  - `204 No Content`: If the product details are successfully added or updated.
+  - `404 Not Found`: If the product with the specified ID does not exist.
+    - "error": "Product not found"
+  - `400 Bad Request`: If the request body is invalid or missing required fields or the product ID is not a number.
+    - "error": "Invalid product ID"  
 
 ## Testing
 You can use the locustfile to perform load testing on the API. Make sure you have Locust installed, and then from the testing directory run:
